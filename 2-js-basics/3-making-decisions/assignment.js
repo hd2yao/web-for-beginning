@@ -16,3 +16,10 @@ let allStudents = [
 ]
 
 let studentWhoPass = [];
+
+allStudents.forEach(element => {
+    // if element != 'C-' || element < 3 {
+    //     continue
+    // }
+    studentWhoPass.push(element)
+});
