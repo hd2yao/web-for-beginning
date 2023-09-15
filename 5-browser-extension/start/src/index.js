@@ -17,6 +17,15 @@ const clearBtn = document.querySelector('.clear-btn');
 
 //5
 //set up user's api key and region
+function setUpUser(apiKey, regionName) {
+    localStorage.setItem('apiKey', apiKey);
+    localStorage.setItem('regionName', regionName);
+    loading.style.display = 'block';
+    errors.textContent = '';
+    clearBtn.style.display = 'block';
+    // 建立初始化呼叫
+    displayCarbonUsage(apiKey, regionName);
+}
 
 //4
 // handle form submission
