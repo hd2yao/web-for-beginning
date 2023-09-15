@@ -22,6 +22,36 @@ const clearBtn = document.querySelector('.clear-btn');
 // handle form submission
 
 //3 initial checks
+function init() {
+    // 如果任何东西存在 localStorage 中，取出来
+    const storedApiKey = localStorage.getItem('apiKey');
+    const storedRegion = localStorage.getItem('regionName');
+
+    // 设定 icon 为通用绿色
+    // todo
+
+    if (storedApiKey === null || storedRegion === null) {
+        // 如果没有 keys，显示表单
+        form.style.display = 'block';
+        results.style.display = 'none';
+        loading.style.display = 'none';
+        clearBtn.style.display = 'none';
+        errors.textContent = '';
+    } else {
+        // localStorage 有 saved keys/regions，显示结果
+        displayCarbonUsage(storedApiKey, storedRegion);
+        results.style.display = 'none';
+        form.style.display = 'none';
+        clearBtn.style.display = 'block';
+    }
+};
+
+function reset(e) {
+    e.preventDefault();
+    // 只清除 local storage 国家区域代码
+    localStorage.removeItem('regionName');
+    init();
+}
 
 //2
 // set listeners and start app
