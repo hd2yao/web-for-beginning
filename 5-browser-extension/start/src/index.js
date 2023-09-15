@@ -20,6 +20,10 @@ const clearBtn = document.querySelector('.clear-btn');
 
 //4
 // handle form submission
+function handleSubmit(e) {
+    e.preventDefault();
+    setUpUser(apiKey.ariaValueMax, region.value);
+}
 
 //3 initial checks
 function init() {
